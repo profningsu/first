@@ -1,0 +1,263 @@
+2021–2025 全球廣義半導體專利分析（可交付版）
+
+一、結論先行
+
+已知事實
+1) 若用經驗證、較乾淨的 Google Patents 查詢鏡像來看，2021–2025 的全球廣義半導體專利重心很明確：
+   - 核心器件/封裝/IC：Intel、TSMC、Samsung、Micron、Adeia、Amkor 等最突出。
+   - 製程/設備/晶圓製造：TSMC、ASM、Lam Research、Applied Materials、SanDisk/WD 體系最突出。
+2) 技術熱點集中在：先進封裝、chiplet、hybrid bonding、backside power、HBM、EUV/光刻、沉積/鍍膜（C23C）、記憶體（G11C）與新制半導體器件類（多個 H10* CPC）。
+3) 2021–2025 的前沿關鍵詞呈現明顯上升：
+   - chiplet：1,410 → 8,964
+   - hybrid bonding：2,902 → 8,839
+   - backside power / back-side power：556 → 4,055（2024 為 4,688，2025 略回落）
+   - HBM：10,025 → 27,205
+   - EUV：23,146 → 30,707
+   以上皆為 Google Patents 同源資料的 publication-date 年度查詢結果。
+4) 若把「廣義半導體」拆成兩個可驗證鏡像來看，產業結構非常一致：
+   - 核心器件/封裝/IC query 的 top assignees 偏設計、封裝、系統整合。
+   - 製程/設備 query 的 top assignees 偏晶圓代工、設備、製程整合。
+   兩者交集最大的公司是 TSMC；Intel 在 chiplet/封裝整合存在感強；Samsung 在 HBM 與先進整合強；ASM/Lam/Applied 在製程鏈路強。
+
+不能確定
+1) 無法在不安裝套件、且 Google Patents 對下載/XHR 出現 429/503/robot block 的條件下，直接交付「全球全量、單一 query、去重家族層級」的精確總量與精確年度總量。
+2) Google Patents summary 的 assignee / CPC facet 明顯是 top-ranked 1,000 筆樣本摘要，不是全 universe 的完整 facet；因此本報告把它用於「相對排序與熱點辨識」，不宣稱為全球精確名次。
+3) assignee 存在多語別名（例如 Taiwan Semiconductor Manufacturing Co., Ltd. / Taiwan Semiconductor Manufacturing Company, Ltd. / 台灣積體電路製造股份有限公司），本報告已人工合併主要別名，但不能保證完全合併所有語種。
+
+二、方法與資料來源
+
+資料來源
+- Google Patents 網頁搜尋結果
+- Google Patents 同 session XHR/query JSON 回應（非 download=true 路徑）
+
+為何不用單一超廣 query 直接下結論
+- 超廣 query 很容易被非目標領域污染，或因平台排序/樣本截斷使 top assignee 失真。
+- 因此本報告採「雙鏡像 + 前沿關鍵詞」方法：
+  A. 核心半導體鏡像（Core）
+     query = ("semiconductor device" OR "semiconductor package" OR "integrated circuit")
+  B. 製程/設備鏡像（Fab）
+     query = (lithography OR etch OR deposition OR epitaxy OR "semiconductor wafer" OR photomask OR EUV)
+  C. 前沿主題關鍵詞（驗證趨勢）
+     chiplet / "hybrid bonding" / "backside power" OR "back-side power" / HBM / EUV
+- 時間篩選：publication date 落在 2021-01-01 至 2025-12-31。
+
+驗證步驟
+- 驗證每個 query 的 top results 是否真為半導體相關；若污染則改 query。
+- 驗證 publication date 篩選是否真的落在 2021–2025。
+- 驗證 summary facet 與 top results 是否語義一致，再拿來做 ranking / hotspot 判讀。
+
+三、Top 申請人（以相對排序依據交付）
+
+A. 核心半導體鏡像（Core）top assignees，來自 Google Patents summary 樣本
+原始 top 名單（節錄）
+- Intel Corporation：132
+- Taiwan Semiconductor Manufacturing Company, Ltd.：105
+- Samsung Electronics Co., Ltd.：66
+- Adeia Semiconductor Bonding Technologies Inc.：48
+- Micron Technology, Inc.：29
+- Taiwan Semiconductor Manufacturing Co., Ltd.：24
+- Apple Inc.：17
+- Amkor Technology Singapore Holding Pte. Ltd.：16
+
+人工合併主要別名後的相對排序
+1. Intel（約 132）
+2. TSMC（約 129 = 105 + 24；未含其他語種別名）
+3. Samsung（約 66）
+4. Adeia（約 48）
+5. Micron（約 29）
+6. Apple（約 17）
+7. Amkor（約 16）
+
+判讀
+- 這個鏡像反映的是器件/封裝/IC 結構，故 Intel、TSMC、Samsung、Micron、Amkor、Adeia 等公司更突出。
+- Adeia 的出現，支持「先進封裝/鍵合」是 2021–2025 的核心專利戰場之一。
+
+B. 製程/設備鏡像（Fab）top assignees，來自 Google Patents summary 樣本
+原始 top 名單（節錄）
+- Asm Ip Holding B.V.：61
+- Taiwan Semiconductor Manufacturing Co., Ltd.：58
+- 램 리써치 코포레이션：54
+- Taiwan Semiconductor Manufacturing Company, Ltd.：52
+- Sandisk Technologies Llc：44
+- Applied Materials, Inc.：39
+- Lam Research Corporation：35
+- 에이에스엠 아이피 홀딩 비.브이.：29
+
+人工合併主要別名後的相對排序
+1. TSMC（約 110 = 58 + 52）
+2. ASM（約 90 = 61 + 29）
+3. Lam Research（約 89 = 54 + 35）
+4. SanDisk / WD 體系（約 44）
+5. Applied Materials（約 39）
+
+判讀
+- 這個鏡像更能反映晶圓代工 + 設備 + 製程整合的競爭格局。
+- TSMC 是兩個鏡像中都很強的少數公司，說明其專利布局不只在器件/封裝，也延伸到製程/整合。
+
+C. 前沿主題的領先申請人（作為 broad semiconductor 補強證據）
+- chiplet：Intel（218）明顯領先，其次為 Micron（81）、AMD（47）
+- hybrid bonding：TSMC（76）、YMTC（66）、Adeia（65）、Intel（54）
+- backside power：IBM（128）、TSMC（89 + 76 + 56 多語別名）、Samsung 韓文別名（67）
+- HBM：Samsung（69 + 37 韓文別名）、Intel（49）、Micron（41）
+- EUV：Carl Zeiss SMT（68）、TSMC（67 + 57）、ASML 荷蘭體系（45 + 36）
+
+整體可辯護結論
+- 若要給出 2021–2025 廣義半導體最穩健的「相對領先群」：TSMC、Intel、Samsung 是最穩的三家；其後依主題分別由 Micron、ASM、Lam Research、Applied Materials、Adeia、Amkor、ASML/Carl Zeiss SMT 等補位。
+
+四、年度趨勢
+
+A. 可以確認的年度趨勢（關鍵前沿主題）
+- chiplet：
+  2021 = 1,410
+  2022 = 2,651
+  2023 = 3,778
+  2024 = 5,334
+  2025 = 8,964
+  解讀：2021–2025 約 6.4 倍，最明顯的高成長主題之一。
+
+- hybrid bonding：
+  2021 = 2,902
+  2022 = 3,591
+  2023 = 4,642
+  2024 = 6,516
+  2025 = 8,839
+  解讀：持續上升，支撐 3D 整合、記憶體堆疊、先進封裝演進。
+
+- backside power / back-side power：
+  2021 = 556
+  2022 = 2,110
+  2023 = 3,567
+  2024 = 4,688
+  2025 = 4,055
+  解讀：2021–2024 快速拉升；2025 略回落，可能受 terminology 差異、公開時滯、同義詞分流影響，不能直接解讀為技術降溫。
+
+- HBM：
+  2021 = 10,025
+  2022 = 12,632
+  2023 = 15,039
+  2024 = 20,188
+  2025 = 27,205
+  解讀：與 AI 伺服器/高頻寬記憶體需求高度一致，屬確定性上升主題。
+
+- EUV：
+  2021 = 23,146
+  2022 = 24,680
+  2023 = 26,310
+  2024 = 29,143
+  2025 = 30,707
+  解讀：成熟高基數下仍持續增長，說明先進製程光刻鏈路仍是核心戰場。
+
+B. 整體 broad semiconductor 的年度總量
+- 本次無法在平台限制下得到可信的「單一查詢、全球全量、家族去重」年度總量。
+- 但由 core/fab 鏡像 summary bucket 與上述前沿關鍵詞年趨勢可合理判斷：2021–2025 整體方向不是下滑，而是由先進封裝、HBM、chiplet、hybrid bonding、EUV/製程整合所帶動的結構性增長。
+
+五、IPC/CPC 熱點
+
+A. 核心半導體鏡像（Core）CPC top codes
+- H10W
+- H10P
+- H10D
+- G06F
+- G11C
+- G02B
+- H05K
+- H10B
+
+判讀
+- H10* 類別大量出現，代表新制半導體器件/相關子類是主戰場。
+- G11C（記憶體）與 H05K（電路/封裝組裝相關）同時靠前，說明「記憶體 + 封裝」是這一輪競爭交會點。
+- G06F 的出現表示不少專利與系統級、控制級或計算架構層面連動。
+
+B. 製程/設備鏡像（Fab）CPC top codes
+- H10P
+- C23C
+- H10W
+- H10D
+- H10B
+- G03F
+- H01J
+- B82Y
+
+判讀
+- C23C（鍍膜/塗層/沉積相關）與 G03F（光刻）靠前，說明沉積與光刻是最密集的製程專利區。
+- H01J 與 B82Y 的出現，反映真空/電子束/奈米尺度製程與元件交疊。
+
+六、代表專利（已驗證 publication date 落在 2021–2025）
+
+1) TWI861132B
+   - 標題：Transistors with back-side contacts to create three dimensional memory and logic
+   - 申請人：Intel（繁中顯示為美商英特爾股份有限公司）
+   - 公開日：2024-11-11
+   - 代表性：對應 3D memory/logic 與 backside contact，代表先進邏輯與 3D 整合方向。
+
+2) US11756957B2
+   - 標題：Reducing gate resistance in stacked vertical transport field effect transistors
+   - 申請人：IBM
+   - 公開日：2023-09-12
+   - 代表性：代表垂直堆疊 transistor / advanced device architecture。
+
+3) US12112998B2
+   - 標題：Semiconductor device and method for forming the same
+   - 申請人：TSMC
+   - 公開日：2024-10-08
+   - 代表性：代表晶圓代工在器件結構與形成方法上的主導布局。
+
+4) US11710693B2
+   - 標題：Wafer level package utilizing molded interposer
+   - 申請人：Micron Technology, Inc.
+   - 公開日：2023-07-25
+   - 代表性：典型先進封裝/wafer-level package/interposer 方向。
+
+5) TWI803899B
+   - 標題：Semiconductor structure, package structure, and package method
+   - 申請人：台灣積體電路製造股份有限公司
+   - 公開日：2023-06-01
+   - 代表性：說明 TSMC 在封裝結構與 package method 的高密度佈局。
+
+6) US12111576B2
+   - 標題：Extreme ultraviolet photolithography method with infiltration for enhanced ...
+   - 申請人：TSMC
+   - 公開日：2024-10-08
+   - 代表性：直接對應 EUV 光刻，是製程側最具代表性的熱點之一。
+
+七、白區 / 低飽和方向（以「增長快、但主導者尚未完全壟斷」為判準）
+
+1) Chiplet 系統層協同
+- 包含 chiplet 互連協議、跨 die 電源/時序/熱管理、異質裸晶整合驗證、封裝內測試與容錯。
+- 原因：chiplet 數量成長極快，但真正能跨 CPU/GPU/HBM/IO 做系統級協同的專利仍呈分散態勢。
+
+2) Hybrid bonding 的量產化輔助技術
+- 包含對位、瑕疵檢測、yield learning、可重工(rework)、known-good-die 流程。
+- 原因：hybrid bonding 熱度高，但大量專利仍集中在結構本身；量產穩定性與檢測/修復鏈條仍有空位。
+
+3) Backside power 的 DFT / reliability / repair
+- 包含 backside power rail 下的測試可達性、失效分析、熱-機-電可靠性協同。
+- 原因：backside power 熱度快速上升，但從導入到量產，需要大量非前台器件本體的輔助創新。
+
+4) 先進封裝中的材料與中介層新方案
+- 包含低翹曲材料、熱界面材料、molded interposer、2.5D/3D 中介層與局部修補技術。
+- 原因：封裝是最明確熱點，但真正能同時解決成本、良率、熱、機械可靠性的組合專利仍未飽和。
+
+5) SiC / GaN 功率器件的模組化與可靠性
+- 尤其是車規、高溫、高壓、EMI、封裝寄生效應與壽命模型。
+- 原因：功率半導體確定升溫，但查詢結果顯示語詞污染高、主題分散，反而代表細分應用場景仍有大量可切入空間。
+
+八、限制與不能確定之處
+
+1) 平台限制
+- Google Patents download=true 容易 429；同源 XHR 在高頻抓取後出現 503 / robot block。
+- 因此本報告未做全量爬取，也未做全球家族級去重。
+
+2) 結果型態限制
+- summary facet 是樣本，不是 universe；適合做排序與熱點，不適合聲稱精確全球份額。
+- 關鍵詞查詢會受語種、同義詞、縮寫、排序規則影響。
+
+3) 年度總量限制
+- 已取得的年度序列，以前沿主題為主；無法在本輪條件下交付完全可信的 broad-semiconductor 全量年度總量。
+
+九、最終可交付判斷
+
+若要用一句話概括 2021–2025 全球廣義半導體專利：
+- 主軸不是單純「器件數量增加」，而是「先進封裝 + 3D/異質整合 + HBM/記憶體 + EUV/製程整合」同步加速。
+- 公司層面最穩的領先群是 TSMC、Intel、Samsung；製程設備側則是 ASM、Lam Research、Applied Materials；記憶體/封裝/鍵合方向則由 Micron、Kioxia/YMTC、Adeia、Amkor 等補強。
+- 對新切入者而言，最值得看的白區不是成熟 device claim，而是 chiplet/hybrid bonding/backside power/advanced packaging 的量產化、檢測、可靠性、修補與系統協同。

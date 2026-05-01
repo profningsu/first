@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<title>2021–2025 全球廣義半導體專利：技術與管理意涵 - Preview</title>
+<style>
+  :root { --navy:#0B1F33; --navy2:#132B45; --teal:#0F8B8D; --teal2:#16A6A8; --gold:#E5B85C; --mist:#F3F7FA; --text:#233143; --muted:#6E7D90; --blue:#3C78D8; --rose:#D96C75; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif; background:#dfe7ee; color:var(--text); }
+  .wrap{ padding:24px; display:grid; gap:24px; justify-content:center; }
+  .slide{ width:1280px; min-height:720px; background:white; box-shadow:0 12px 32px rgba(11,31,51,.12); position:relative; overflow:hidden; border-radius:10px; }
+  .dark{ background:var(--navy); color:white; }
+  .title{ position:absolute; left:70px; top:72px; font-size:42px; font-weight:800; width:900px; line-height:1.15; }
+  .kicker{ position:absolute; left:70px; top:38px; font-size:16px; font-weight:700; letter-spacing:.12em; color:var(--teal); }
+  .dark .kicker{ color:var(--gold); }
+  .subtitle{ position:absolute; left:70px; top:210px; width:650px; font-size:18px; line-height:1.45; color:#dce8f4; }
+  .metrics{ position:absolute; right:68px; top:72px; width:380px; display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+  .mini-card{ background:white; color:var(--text); border-left:8px solid var(--teal); border-radius:10px; padding:16px 16px 14px; min-height:116px; box-shadow:0 10px 24px rgba(11,31,51,.08); }
+  .mini-card:nth-child(2){ border-left-color:#74D3D4; }
+  .mini-card:nth-child(3){ border-left-color:#E5B85C; }
+  .mini-card:nth-child(4){ border-left-color:#3C78D8; }
+  .mini-card:nth-child(5){ border-left-color:#D96C75; grid-column:span 2; }
+  .mini-label{ font-size:15px; color:var(--muted); font-weight:700; }
+  .mini-value{ font-size:34px; font-weight:800; margin-top:8px; }
+  .mini-range{ font-size:15px; margin-top:6px; }
+  .strip{ position:absolute; left:0; right:0; bottom:0; height:108px; background:linear-gradient(90deg, rgba(15,139,141,.20), rgba(15,139,141,.50)); }
+  .summary-list{ position:absolute; left:75px; top:295px; width:620px; font-size:25px; line-height:1.5; }
+  .summary-list li{ margin:12px 0; }
+  .section-grid{ position:absolute; left:70px; right:70px; top:140px; bottom:88px; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .panel{ background:white; border-radius:14px; box-shadow:0 10px 24px rgba(11,31,51,.08); padding:24px 26px; }
+  .panel h3{ margin:0 0 12px; font-size:28px; }
+  .panel ul{ margin:10px 0 0 18px; padding:0; font-size:20px; line-height:1.45; }
+  .center-badge{ display:flex; align-items:center; justify-content:center; background:var(--navy); color:#fff; border-radius:16px; font-size:44px; font-weight:800; }
+  .two-col{ position:absolute; left:70px; right:70px; top:140px; bottom:88px; display:grid; grid-template-columns:1.2fr .8fr; gap:24px; }
+  .chart-box,.stack-box,.info-box{ background:white; border-radius:14px; box-shadow:0 10px 24px rgba(11,31,51,.08); padding:20px 24px; }
+  .chart-box h3,.stack-box h3,.info-box h3{ margin:0 0 14px; font-size:28px; }
+  .line-chart{ width:100%; height:360px; }
+  .stack-pill{ display:inline-block; padding:10px 18px; color:white; border-radius:999px; font-weight:700; margin:8px 10px 8px 0; }
+  .stack-box ul{ margin:14px 0 0 18px; font-size:18px; line-height:1.45; }
+  .ws-grid{ position:absolute; left:70px; right:70px; top:140px; display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .ws-card{ background:white; border-radius:14px; min-height:164px; padding:20px 22px; box-shadow:0 10px 24px rgba(11,31,51,.08); }
+  .ws-card h4{ margin:0 0 10px; font-size:24px; line-height:1.22; }
+  .ws-card p{ margin:0; color:var(--muted); font-size:19px; }
+  .triple-grid{ position:absolute; left:70px; right:70px; top:150px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .mini-panel{ background:white; border-radius:14px; box-shadow:0 10px 24px rgba(11,31,51,.08); padding:20px 22px; min-height:200px; }
+  .mini-panel h4{ margin:0 0 10px; font-size:24px; }
+  .mini-panel p,.mini-panel li{ font-size:18px; line-height:1.42; }
+  .four-grid{ position:absolute; left:70px; right:70px; top:150px; display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+  .action-card{ background:var(--mist); border-radius:14px; box-shadow:0 10px 24px rgba(11,31,51,.08); padding:20px 22px; min-height:158px; border-left:8px solid var(--teal); }
+  .action-card:nth-child(2){ border-left-color:var(--blue); }
+  .action-card:nth-child(3){ border-left-color:var(--gold); }
+  .action-card:nth-child(4){ border-left-color:var(--rose); }
+  .action-card strong{ display:block; font-size:24px; margin-bottom:8px; }
+  .action-card p{ font-size:18px; line-height:1.42; margin:0; }
+  .timeline{ position:absolute; right:82px; top:160px; width:340px; display:grid; gap:18px; }
+  .timeline .mini-panel{ min-height:120px; }
+  .relation-map{ position:absolute; left:70px; right:70px; top:150px; bottom:96px; background:white; border-radius:16px; box-shadow:0 10px 24px rgba(11,31,51,.08); padding:26px; }
+  .node-grid{ display:grid; grid-template-columns:1fr 220px 1fr; gap:18px; align-items:center; margin-top:22px; }
+  .node-stack{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  .node{ background:var(--mist); border-radius:12px; padding:12px 14px; text-align:center; font-weight:700; font-size:18px; border-left:6px solid var(--teal); }
+  .node.gold{ border-left-color:var(--gold); }
+  .node.rose{ border-left-color:var(--rose); }
+  .bridge-band{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:20px; }
+  .bridge-note{ background:#EEF3F8; border-radius:12px; padding:12px 14px; font-size:16px; line-height:1.35; }
+  .quad-wrap{ position:absolute; left:70px; right:70px; top:150px; bottom:96px; display:grid; grid-template-columns:1.15fr .85fr; gap:24px; }
+  .quad-grid{ background:white; border-radius:16px; box-shadow:0 10px 24px rgba(11,31,51,.08); padding:20px 24px; position:relative; }
+  .quad-grid .axis-h,.quad-grid .axis-v{ position:absolute; background:#D8E1EA; }
+  .quad-grid .axis-h{ left:76px; right:36px; top:238px; height:2px; }
+  .quad-grid .axis-v{ left:270px; top:62px; bottom:46px; width:2px; }
+  .quad-card{ position:absolute; width:170px; min-height:66px; background:white; border-radius:12px; box-shadow:0 8px 18px rgba(11,31,51,.08); padding:10px 12px; font-size:15px; font-weight:700; text-align:center; border-left:6px solid var(--teal); }
+  .lane-list{ background:white; border-radius:16px; box-shadow:0 10px 24px rgba(11,31,51,.08); padding:20px 24px; }
+  .lane{ background:var(--mist); border-radius:12px; padding:14px 16px; margin:14px 0; font-size:16px; line-height:1.35; }
+  .lane strong{ display:block; margin-bottom:6px; }
+  .flow-row{ position:absolute; left:70px; right:70px; top:160px; bottom:96px; display:grid; grid-template-rows:1.2fr .9fr; gap:22px; }
+  .flow-box,.cadence-row{ background:var(--mist); border-radius:16px; box-shadow:0 10px 24px rgba(11,31,51,.08); padding:24px; }
+  .step-track{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; align-items:center; margin-top:22px; }
+  .flow-step{ background:white; border-radius:14px; padding:16px; box-shadow:0 8px 18px rgba(11,31,51,.08); font-size:16px; line-height:1.35; border-left:7px solid var(--teal); }
+  .cadence-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .decision-grid{ position:absolute; left:70px; right:70px; top:170px; bottom:96px; display:grid; grid-template-columns:2.4fr .95fr; gap:22px; }
+  .decision-cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .decision-card{ background:white; color:var(--text); border-radius:14px; padding:18px 18px 16px; box-shadow:0 10px 24px rgba(0,0,0,.18); border-top:8px solid var(--teal); }
+  .decision-card.gold{ border-top-color:var(--gold); }
+  .decision-card.rose{ border-top-color:var(--rose); }
+  .decision-card h4{ margin:0 0 10px; font-size:26px; }
+  .decision-card p{ margin:0 0 10px; font-size:17px; line-height:1.35; }
+  .kpi-pill{ background:var(--mist); border-radius:999px; padding:10px 12px; font-size:14px; line-height:1.25; }
+  .footer-note{ position:absolute; left:70px; right:70px; bottom:24px; font-size:15px; color:var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="slide dark">
+    <div class="kicker">EXECUTIVE VIEW</div>
+    <div class="title">2021–2025 全球廣義半導體專利：技術與管理意涵</div>
+    <div class="subtitle">技術競爭主軸已從單點製程，轉向「封裝 × 系統 × 製造整合」</div>
+    <ul class="summary-list">
+      <li>最穩定領先群：TSMC、Intel、Samsung</li>
+      <li>第二梯隊依主題分化：Micron、ASM、Lam Research、Applied Materials、Adeia、Amkor、ASML / Carl Zeiss SMT</li>
+      <li>高成長主題：chiplet、hybrid bonding、backside power、HBM、EUV</li>
+    </ul>
+    <div class="metrics">
+    <div class="mini-card">
+      <div class="mini-label">chiplet</div>
+      <div class="mini-value" style="color:#0F8B8D">6.4×</div>
+      <div class="mini-range">1,410 → 8,964</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-label">hybrid bonding</div>
+      <div class="mini-value" style="color:#74D3D4">3.0×</div>
+      <div class="mini-range">2,902 → 8,839</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-label">backside power</div>
+      <div class="mini-value" style="color:#E5B85C">7.3×</div>
+      <div class="mini-range">556 → 4,055</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-label">HBM</div>
+      <div class="mini-value" style="color:#3C78D8">2.7×</div>
+      <div class="mini-range">10,025 → 27,205</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-label">EUV</div>
+      <div class="mini-value" style="color:#D96C75">1.3×</div>
+      <div class="mini-range">23,146 → 30,707</div>
+    </div></div>
+    <div class="strip"></div>
+  </section>
+  <section class="slide" style="background:var(--mist)">
+    <div class="kicker">COMPETITIVE LANDSCAPE</div>
+    <div class="title" style="color:var(--text);font-size:38px;top:70px;width:1140px;">產業鏈雙核心：器件/封裝/IC 與 製程/設備 同步升級</div>
+    <div class="relation-map">
+      <div style="font-size:18px;line-height:1.4;">用關係圖而不是名單看競爭：需求牽引在左、製造供給在右，TSMC 位於少數可跨鏈整合的樞紐。</div>
+      <div class="node-grid">
+        <div>
+          <div style="font-size:18px;font-weight:800;color:var(--teal);margin-bottom:10px;">需求 / 系統側</div>
+          <div class="node-stack">
+            <div class="node">Intel</div><div class="node">Apple</div>
+            <div class="node">Samsung</div><div class="node">Adeia</div>
+            <div class="node rose">Micron</div><div class="node">Amkor</div>
+          </div>
+        </div>
+        <div class="center-badge" style="height:200px; flex-direction:column; gap:8px;">TSMC<div style="font-size:18px;font-weight:600;color:#DCE7F2;">core × fab hub</div></div>
+        <div>
+          <div style="font-size:18px;font-weight:800;color:var(--gold);margin-bottom:10px;">製造 / 設備側</div>
+          <div class="node-stack">
+            <div class="node gold">ASM</div><div class="node rose">ASML / Carl Zeiss</div>
+            <div class="node gold">Lam Research</div><div class="node rose">SanDisk / WD</div>
+            <div class="node gold" style="grid-column:span 2;">Applied Materials</div>
+          </div>
+        </div>
+      </div>
+      <div class="bridge-band">
+        <div class="bridge-note">需求拉動：AI 平台、HBM、封裝協同把產品 roadmap 推向系統整合。</div>
+        <div class="bridge-note">整合樞紐：少數玩家能同時掌握客戶需求、節點節奏與封裝協同。</div>
+        <div class="bridge-note">供給主導：設備 / 材料商正鎖定未來節點 know-how 與議價權。</div>
+      </div>
+    </div>
+    <div class="footer-note">管理重點：競爭者地圖至少拆成產品 / 封裝 / 設備 / 材料四層，不要只看總 patent count。</div>
+  </section>
+  <section class="slide">
+    <div class="kicker">HOTSPOT 01 · ADVANCED PACKAGING</div>
+    <div class="title" style="color:var(--text);font-size:38px;top:70px;width:1140px;">封裝已從成本中心變成架構創新中心</div>
+    <div class="two-col">
+      <div class="chart-box">
+        <h3>chiplet 與 hybrid bonding 的加速上升</h3>
+        <svg class="line-chart" viewBox="0 0 640 360">
+          <rect x="0" y="0" width="640" height="360" fill="#fff"/>
+          <line x1="70" y1="290" x2="560" y2="290" stroke="#D8E1EA" stroke-width="2"/>
+          <line x1="70" y1="60" x2="70" y2="290" stroke="#D8E1EA" stroke-width="2"/>
+          <text x="70" y="320" font-size="18" fill="#6E7D90">2021</text>
+          <text x="520" y="320" font-size="18" fill="#6E7D90">2025</text>
+          <polyline points="100,250 520,90" fill="none" stroke="#16A6A8" stroke-width="5"/>
+          <polyline points="100,210 520,130" fill="none" stroke="#74D3D4" stroke-width="5"/>
+          <circle cx="100" cy="250" r="6" fill="#16A6A8"/><circle cx="520" cy="90" r="6" fill="#16A6A8"/>
+          <circle cx="100" cy="210" r="6" fill="#74D3D4"/><circle cx="520" cy="130" r="6" fill="#74D3D4"/>
+          <text x="520" y="82" font-size="16" fill="#16A6A8">8,964</text>
+          <text x="520" y="122" font-size="16" fill="#74D3D4">8,839</text>
+        </svg>
+      </div>
+      <div class="stack-box">
+        <h3>Ecosystem stack</h3>
+        <div class="stack-pill" style="background:#3C78D8">logic</div>
+        <div class="stack-pill" style="background:#D96C75">memory</div>
+        <div class="stack-pill" style="background:#E5B85C;color:#122033;">I/O</div>
+        <div class="stack-pill" style="background:#16A6A8">advanced packaging</div>
+        <ul>
+          <li>多裸晶異質整合成為效能主路徑</li>
+          <li>互連與鍵合方式成為價值核心</li>
+          <li>roadmap 要升級為 package platform roadmap</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="slide" style="background:var(--mist)">
+    <div class="kicker">HOTSPOT 02 · MEMORY × COMPUTE</div>
+    <div class="title" style="color:var(--text);font-size:38px;top:70px;width:1140px;">HBM 不只是記憶體議題，而是 AI 系統瓶頸的專利映射</div>
+    <div class="two-col">
+      <div class="chart-box">
+        <h3>HBM 年度成長（2021 → 2025）</h3>
+        <svg class="line-chart" viewBox="0 0 640 360">
+          <rect x="0" y="0" width="640" height="360" fill="#fff"/>
+          <line x1="70" y1="290" x2="560" y2="290" stroke="#D8E1EA" stroke-width="2"/>
+          <line x1="70" y1="70" x2="70" y2="290" stroke="#D8E1EA" stroke-width="2"/>
+          <polygon points="100,235 520,120 520,290 100,290" fill="#3C78D8" opacity="0.25"/>
+          <polyline points="100,235 520,120" fill="none" stroke="#3C78D8" stroke-width="6"/>
+          <text x="85" y="228" font-size="16" fill="#3C78D8">10,025</text>
+          <text x="520" y="112" font-size="16" fill="#3C78D8">27,205</text>
+        </svg>
+      </div>
+      <div class="stack-box">
+        <h3>Compute–Memory bottleneck</h3>
+        <div class="stack-pill" style="background:#0B1F33">Compute</div>
+        <div class="stack-pill" style="background:#3C78D8">HBM</div>
+        <div class="stack-pill" style="background:#16A6A8">Package</div>
+        <ul>
+          <li>AI 平台已從 compute 單點優化轉向系統協同</li>
+          <li>HBM 牽動封裝、中介層、散熱與供電</li>
+          <li>memory architecture 應進入平台級 KPI</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-note">管理重點：建立 compute / memory / package 聯合評審機制，避免局部最佳化。</div>
+  </section>
+  <section class="slide">
+    <div class="kicker">HOTSPOT 03 · PROCESS / EQUIPMENT</div>
+    <div class="title" style="color:var(--text);font-size:38px;top:70px;width:1140px;">即使封裝升溫，製程設備鏈仍是不可替代的底層戰場</div>
+    <div class="triple-grid" style="grid-template-columns:1.15fr 1fr 1fr;">
+      <div class="mini-panel">
+        <h4>EUV：高基數下仍持續成長</h4>
+        <p>2021：23,146</p>
+        <p>2025：30,707</p>
+        <p>訊號重點：先進曝光與製程設備專利量仍維持高檔，代表底層 fab 能力沒有被替代。</p>
+      </div>
+      <div class="mini-panel">
+        <h4>AI 晶片量產依賴鏈</h4>
+        <p><span class="stack-pill" style="background:#3C78D8">Design</span><span class="stack-pill" style="background:#D96C75">EUV / Etch</span><span class="stack-pill" style="background:#16A6A8">HBM / Package</span><span class="stack-pill" style="background:#E5B85C;color:#122033;">System Yield</span></p>
+        <p>設計、製程、封裝與良率是一條鏈，而非各自獨立優化。</p>
+      </div>
+      <div class="mini-panel">
+        <h4>Fab CPC 底盤 + 管理雷達</h4>
+        <ul>
+          <li>C23C 沉積 / 鍍膜</li>
+          <li>G03F 光刻 / 圖案轉移</li>
+          <li>設備 / 材料風險</li>
+          <li>共同開發 IP 邊界</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-note">管理重點：產品策略邊界其實由先進製程可得性決定，不能只偏向設計端思維。</div>
+  </section>
+  <section class="slide" style="background:var(--mist)">
+    <div class="kicker">WHITE SPACE & NEXT OPPORTUNITIES</div>
+    <div class="title" style="color:var(--text);font-size:38px;top:70px;width:1140px;">真正的白區在「量產化輔助技術」與「跨層整合治理」</div>
+    <div class="quad-wrap">
+      <div class="quad-grid">
+        <div style="font-size:24px;font-weight:800;">機會矩陣：先抓高可行 × 高策略價值白區</div>
+        <div class="axis-h"></div><div class="axis-v"></div>
+        <div style="position:absolute;left:80px;top:70px;font-size:15px;color:var(--muted);">觀察 / 佈局</div>
+        <div style="position:absolute;left:382px;top:70px;font-size:15px;color:var(--teal);font-weight:800;">優先投資</div>
+        <div style="position:absolute;left:80px;top:256px;font-size:15px;color:var(--gold);font-weight:800;">戰術切入</div>
+        <div style="position:absolute;left:382px;top:256px;font-size:15px;color:var(--muted);">延後 / 追蹤</div>
+        <div class="quad-card" style="left:392px;top:86px;width:164px;border-left-color:#8CA7BF;">Yield-learning / rework / KGD</div>
+        <div class="quad-card" style="left:308px;top:110px;width:150px;border-left-color:var(--teal);">Chiplet 系統協同</div>
+        <div class="quad-card" style="left:404px;top:166px;width:152px;border-left-color:var(--blue);">Hybrid bonding 量產化</div>
+        <div class="quad-card" style="left:132px;top:142px;width:150px;border-left-color:var(--rose);">封裝材料 / 中介層</div>
+        <div class="quad-card" style="left:306px;top:258px;width:168px;border-left-color:var(--gold);">Backside power DFT / reliability</div>
+        <div class="quad-card" style="left:146px;top:250px;width:146px;border-left-color:#4C9F70;">SiC / GaN 模組平台</div>
+      </div>
+      <div class="lane-list">
+        <div style="font-size:24px;font-weight:800;">佈局節奏</div>
+        <div class="lane"><strong style="color:var(--gold)">近程 0–12M</strong>Yield-learning / rework / KGD、封裝材料</div>
+        <div class="lane"><strong style="color:var(--blue)">中程 12–24M</strong>Hybrid bonding 量產化、backside power reliability</div>
+        <div class="lane"><strong style="color:var(--teal)">長程 24M+</strong>Chiplet 系統協同、SiC/GaN 模組平台</div>
+        <div class="bridge-note" style="margin-top:18px;">原則：先做能快落地的輔助技術。</div>
+      </div>
+    </div>
+    <div class="footer-note">管理意涵：投資組合可預留 20–30% 給量產化輔助；IP 團隊優先掃 reliability、DFT、rework、yield-learning 空隙。</div>
+  </section>
+  <section class="slide">
+    <div class="kicker">MANAGEMENT OPERATING SYSTEM</div>
+    <div class="title" style="color:var(--text);font-size:38px;top:70px;width:1140px;">從專利情報到技術治理：四個管理動作</div>
+    <div class="flow-row">
+      <div class="flow-box">
+        <div style="font-size:19px;line-height:1.35;">Operating loop：把專利情報直接接到 roadmap、投資組合與 NPI gate。</div>
+        <div class="step-track">
+          <div class="flow-step" style="border-left-color:var(--teal)"><strong>01 Sensing</strong><br/>五大主題雷達</div>
+          <div class="flow-step" style="border-left-color:var(--blue)"><strong>02 Prioritize</strong><br/>產品 / 設備 / 材料 map</div>
+          <div class="flow-step" style="border-left-color:var(--gold)"><strong>03 Invest</strong><br/>核心創新 + 量產化</div>
+          <div class="flow-step" style="border-left-color:var(--rose)"><strong>04 Govern</strong><br/>NPI gate + FTO</div>
+        </div>
+      </div>
+      <div class="cadence-row">
+        <div class="cadence-grid">
+          <div class="flow-step" style="border-left-color:var(--teal)"><strong>季度</strong><br/>更新熱點與競爭者雷達</div>
+          <div class="flow-step" style="border-left-color:var(--gold)"><strong>立項前</strong><br/>檢查 white-space、合作與授權機會</div>
+          <div class="flow-step" style="border-left-color:var(--blue)"><strong>NPI gate</strong><br/>納入 FTO、共研 IP、可靠性檢查</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-note">結論：成熟度關鍵不再只是研發效率，而是跨層決策速度。</div>
+  </section>
+  <section class="slide dark">
+    <div class="kicker">CLOSING DECISIONS</div>
+    <div class="title" style="width:650px;">給管理層的三個決策：擴整合、補量產、做平台</div>
+    <div style="position:absolute;left:70px;top:150px;width:640px;font-size:20px;line-height:1.4;color:#D6E2EE;">把專利情報轉成執行板：每個決策都要有 owner、近期行動與 12–24 個月 KPI。</div>
+    <div class="decision-grid">
+      <div class="decision-cards">
+        <div class="decision-card"><h4>擴整合</h4><p>重做跨層 roadmap</p><p style="font-size:15px;color:#5C6C7C;">Owner：CTO / platform</p><div class="kpi-pill">KPI：聯合審查率</div></div>
+        <div class="decision-card gold"><h4>補量產</h4><p>加碼量產化輔助</p><p style="font-size:15px;color:#5C6C7C;">Owner：R&D / mfg</p><div class="kpi-pill">KPI：yield / reliability 立項</div></div>
+        <div class="decision-card rose"><h4>做平台</h4><p>平台合作與 IP 治理</p><p style="font-size:15px;color:#5C6C7C;">Owner：BU / IP / legal</p><div class="kpi-pill">KPI：共研 / 授權 / 模組數</div></div>
+      </div>
+      <div class="timeline" style="position:static;width:auto;">
+        <div class="mini-panel"><h4>短期 0–12M</h4><p>建五大主題雷達與競爭者 map</p></div>
+        <div class="mini-panel"><h4>中期 12–24M</h4><p>把 white-space 轉成研發立項池</p></div>
+        <div class="mini-panel"><h4>長期 24M+</h4><p>升級成 system / package / process 共治</p></div>
+      </div>
+    </div>
+    <div style="position:absolute;left:70px;top:545px;width:820px;background:#163550;border-radius:14px;padding:14px 18px;font-size:17px;font-weight:700;">一句話結論：下一輪競爭比的不是單點更快，而是跨層整合、量產落地與平台治理。</div>
+    <div class="footer-note" style="color:#D2DCE6">附註：本簡報著重相對排序與熱點辨識；若要升級董事會版，建議再補多資料源交叉驗證。</div>
+  </section>
+</div>
+</body>
+</html>

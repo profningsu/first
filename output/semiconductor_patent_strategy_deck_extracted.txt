@@ -1,0 +1,293 @@
+<!-- Slide number: 1 -->
+
+EXECUTIVE VIEW
+2021–2025 全球廣義半導體專利：技術與管理意涵
+
+chiplet
+hybrid
+6.4×
+3.0×
+1,410 → 8,964
+2,902 → 8,839
+技術競爭主軸已從單點製程，轉向「封裝 × 系統 × 製造整合」
+
+backside
+HBM
+基於既有分析報告整理｜用途：高階主管／技術策略／研發管理
+7.3×
+2.7×
+最穩定領先群：TSMC、Intel、Samsung
+第二梯隊依主題分化：Micron、ASM、Lam Research、Applied Materials、Adeia、Amkor、ASML / Carl Zeiss SMT
+高成長主題：chiplet、hybrid bonding、backside power、HBM、EUV
+556 → 4,055
+10,025 → 27,205
+
+EUV
+1.3×
+23,146 → 30,707
+重點不是單一節點微縮，而是 package / memory / process / equipment 的協同能力。
+
+Design / IC
+Memory
+Package
+
+Foundry
+Equipment
+Optics
+01
+方法邊界：Google Patents page + 非 download XHR/query JSON；適合做相對排序、熱點辨識與策略判讀
+
+### Notes:
+
+<!-- Slide number: 2 -->
+COMPETITIVE LANDSCAPE
+產業鏈雙核心：器件/封裝/IC 與製程/設備同步升級
+
+用關係圖而不是名單看競爭：需求牽引在左、製造供給在右，TSMC 位於少數可跨鏈整合的樞紐。
+需求 / 系統側
+製造 / 設備側
+
+ASM
+ASML / Carl Zeiss
+Intel
+Apple
+TSMC
+
+Lam Research
+SanDisk / WD
+Samsung
+Adeia
+device × package × fab 的跨鏈整合樞紐
+
+Applied Materials
+Micron
+Amkor
+Core
+Fab
+
+需求拉動：AI 平台、記憶體、封裝協同把產品 roadmap 往系統整合推。
+整合樞紐：少數玩家能同時掌握客戶需求、節點節奏與封裝協同。
+供給主導：設備 / 材料商正在鎖定未來節點 know-how 與議價權。
+競爭者地圖至少拆成「產品 / 封裝 / 設備 / 材料」四層，不要只看總 patent count。
+共同開發談判要把設備與材料商的 know-how/IP 邊界提早納入。
+管理實務意涵
+02
+方法邊界：Google Patents page + 非 download XHR/query JSON；適合做相對排序、熱點辨識與策略判讀
+
+### Notes:
+
+<!-- Slide number: 3 -->
+HOTSPOT 01 · ADVANCED PACKAGING
+封裝已從成本中心變成架構創新中心
+
+Ecosystem stack
+
+### Chart: chiplet 與 hybrid bonding 的加速上升
+
+| Category | chiplet | hybrid bonding |
+|---|---|---|
+| 2021 | 1410.0 | 2902.0 |
+| 2025 | 8964.0 | 8839.0 |
+logic
+
+memory
+
+I/O
+chiplet 高成長代表效能提升路徑由單晶片擴張為多裸晶異質整合。
+hybrid bonding 升溫，表示產業正往更細 pitch、更高頻寬、更低延遲的互連架構推進。
+Adeia 等互連/鍵合技術公司前移，顯示價值正從晶片設計轉向結合方式。
+
+advanced packaging
+建立「封裝架構 PM / 系統封裝架構師」角色，而不是只靠製程或封裝工程師各自優化。
+投資評估要把 KGD、對位、rework、封裝內測試列為同級投資項。
+產品公司下一輪 roadmap 要從 die roadmap 升級為 package platform roadmap。
+管理實務意涵
+03
+方法邊界：Google Patents page + 非 download XHR/query JSON；適合做相對排序、熱點辨識與策略判讀
+
+### Notes:
+
+<!-- Slide number: 4 -->
+HOTSPOT 02 · MEMORY × COMPUTE
+HBM 不只是記憶體議題，而是 AI 系統瓶頸的專利映射
+
+Compute–Memory bottleneck
+
+### Chart: HBM 年度成長（2021 → 2025）
+
+| Category | HBM |
+|---|---|
+| 2021 | 10025.0 |
+| 2025 | 27205.0 |
+
+Compute
+HBM
+Package
+
+HBM 快速上升，與 AI 訓練/推論對高頻寬低延遲資料搬移需求一致。
+議題已不再只屬於 memory vendor，而是牽動 GPU、封裝、中介層、散熱、供電的系統性主題。
+Core CPC 中 G11C（記憶體）靠前，顯示記憶體重要性已提升到平台決勝層。
+把 memory architecture 納入平台級 KPI，而不是只看 compute die 指標。
+建立 compute / memory / package 聯合評審機制，避免局部最佳化。
+提早鎖定 HBM、interposer、散熱相關合作與授權談判窗口。
+管理實務意涵
+04
+方法邊界：Google Patents page + 非 download XHR/query JSON；適合做相對排序、熱點辨識與策略判讀
+
+### Notes:
+
+<!-- Slide number: 5 -->
+HOTSPOT 03 · PROCESS / EQUIPMENT
+即使封裝升溫，製程設備鏈仍是不可替代的底層戰場
+
+AI 晶片量產依賴鏈
+
+### Chart: EUV：高基數下仍持續成長
+
+| Category | EUV |
+|---|---|
+| 2021 | 23146.0 |
+| 2025 | 30707.0 |
+
+Design
+EUV / Etch
+HBM / Package
+System Yield
+
+Fab CPC 底盤
+管理者雷達
+
+• C23C 沉積/鍍膜
+節點可得性
+• G03F 光刻 / 圖案轉移
+
+設備 / 材料風險
+• H01J 真空 / 電子束
+訊號重點：即使封裝成為熱點，先進曝光與製程設備專利量仍維持高檔，代表底層 fab 能力沒有被替代。
+
+共同開發 IP 邊界
+• B82Y 奈米製程整合
+產品策略邊界其實由先進製程可得性決定，不能只偏向設計端思維。
+依賴先進代工者，需同步管理曝光、材料、設備與地緣風險。
+共同開發應把法務、IP、產品平台一起拉進治理機制。
+管理實務意涵
+05
+方法邊界：Google Patents page + 非 download XHR/query JSON；適合做相對排序、熱點辨識與策略判讀
+
+### Notes:
+
+<!-- Slide number: 6 -->
+WHITE SPACE & NEXT OPPORTUNITIES
+真正的白區在「量產化輔助技術」與「跨層整合治理」
+
+機會矩陣：優先把「高可行 × 高策略價值」的白區轉成立項池
+佈局節奏
+
+觀察 / 佈局
+
+優先投資
+Yield-learning / rework / KGD、封裝材料切入
+近程 0–12M
+策略價值 ↑
+
+Yield-learning / rework / KGD
+
+Chiplet 系統層協同
+
+先進封裝材料 / 中介層
+
+Hybrid bonding 量產化、backside power reliability
+中程 12–24M
+
+Hybrid bonding
+量產化輔助
+
+SiC / GaN 功率模組化
+Backside power
+DFT / reliability
+
+Chiplet 系統協同、SiC/GaN 模組平台化
+長程 24M+
+戰術切入
+延後 / 追蹤
+
+可行性 →
+
+原則：把大廠主航道旁的輔助技術，優先轉成較快落地的白區。
+技術投資組合可預留 20–30% 給 manufacturing-enablement 類專案。
+IP 團隊應主動搜尋 reliability、DFT、rework、yield-learning 類專利空隙。
+新事業探索可從大廠主航道旁的輔助技術切入，降低正面硬碰風險。
+管理意涵
+06
+方法邊界：Google Patents page + 非 download XHR/query JSON；適合做相對排序、熱點辨識與策略判讀
+
+### Notes:
+
+<!-- Slide number: 7 -->
+MANAGEMENT OPERATING SYSTEM
+從專利情報到技術治理：四個管理動作
+
+Operating loop：把專利情報直接接到 roadmap、投資組合與 NPI gate，而不是只做年度回顧。
+
+Sensing
+Prioritize
+Invest
+Govern
+01
+02
+03
+04
+
+五大主題專利雷達
+產品 / 設備 / 材料地圖
+核心創新 + 量產化輔助
+NPI gate + FTO / white-space review
+
+季度
+立項前
+NPI gate
+更新技術熱點 / 專利雷達
+檢查 white-space 與合作 / 授權可能
+加入 FTO、共同開發 IP、可靠性檢查
+結論：成熟度關鍵不再只是研發效率，而是跨層決策速度。
+能把專利情報接進 roadmap 與投資組合管理的公司，會更早避開紅海、鎖定白區、提高開發命中率。
+07
+方法邊界：Google Patents page + 非 download XHR/query JSON；適合做相對排序、熱點辨識與策略判讀
+
+### Notes:
+
+<!-- Slide number: 8 -->
+
+CLOSING DECISIONS
+給管理層的三個決策：擴整合、補量產、做平台
+把專利情報轉成執行板：每個決策都要有 owner、近期行動與 12–24 個月 KPI。
+
+短期 0–12M
+
+建立五大主題專利雷達與競爭者地圖
+擴整合
+補量產
+做平台
+重做跨層 roadmap
+加碼量產化輔助技術
+平台式合作與 IP 治理
+
+中期 12–24M
+Owner：CTO / platform team
+Owner：R&D + manufacturing
+Owner：BU + IP / legal
+把 white-space 轉為研發立項池與合作名單
+
+KPI：package + memory + process 聯合審查率
+KPI：yield / reliability / rework 立項數
+KPI：共研案 / 授權案 / 平台模組數
+
+長期 24M+
+把技術平台治理升級為 system / package / process 共治
+
+一句話結論：下個競爭階段不是單點技術比快，而是跨層整合、量產落地與平台治理比成熟。
+附註：本簡報根據相對排序與熱點辨識交付，不宣稱全量精確份額；若要升級為董事會版，建議補做多資料源交叉驗證。
+08
+方法邊界：Google Patents page + 非 download XHR/query JSON；適合做相對排序、熱點辨識與策略判讀
+
+### Notes:

@@ -1,0 +1,62 @@
+{
+  "source": "Google Patents page + xhr/query JSON (non-download path)",
+  "time_window": "publication date 2021-01-01 to 2025-12-31",
+  "queries": {
+    "core": "(\"semiconductor device\" OR \"semiconductor package\" OR \"integrated circuit\")",
+    "fab": "(lithography OR etch OR deposition OR epitaxy OR \"semiconductor wafer\" OR photomask OR EUV)",
+    "chiplet": "chiplet",
+    "hybrid_bonding": "\"hybrid bonding\"",
+    "backside_power": "\"backside power\" OR \"back-side power\"",
+    "HBM": "HBM",
+    "EUV": "EUV"
+  },
+  "core_summary_assignees_sample": [
+    ["Intel Corporation", 132],
+    ["Taiwan Semiconductor Manufacturing Company, Ltd.", 105],
+    ["Samsung Electronics Co., Ltd.", 66],
+    ["Adeia Semiconductor Bonding Technologies Inc.", 48],
+    ["Micron Technology, Inc.", 29],
+    ["Taiwan Semiconductor Manufacturing Co., Ltd.", 24],
+    ["Apple Inc.", 17],
+    ["Amkor Technology Singapore Holding Pte. Ltd.", 16]
+  ],
+  "fab_summary_assignees_sample": [
+    ["Asm Ip Holding B.V.", 61],
+    ["Taiwan Semiconductor Manufacturing Co., Ltd.", 58],
+    ["램 리써치 코포레이션", 54],
+    ["Taiwan Semiconductor Manufacturing Company, Ltd.", 52],
+    ["Sandisk Technologies Llc", 44],
+    ["Applied Materials, Inc.", 39],
+    ["Lam Research Corporation", 35],
+    ["에이에스엠 아이피 홀딩 비.브이.", 29]
+  ],
+  "core_summary_cpc_sample": ["H10W", "H10P", "H10D", "G06F", "G11C", "G02B", "H05K", "H10B"],
+  "fab_summary_cpc_sample": ["H10P", "C23C", "H10W", "H10D", "H10B", "G03F", "H01J", "B82Y"],
+  "frontier_topic_yearly_counts": {
+    "chiplet": {"2021": 1410, "2022": 2651, "2023": 3778, "2024": 5334, "2025": 8964},
+    "hybrid_bonding": {"2021": 2902, "2022": 3591, "2023": 4642, "2024": 6516, "2025": 8839},
+    "backside_power": {"2021": 556, "2022": 2110, "2023": 3567, "2024": 4688, "2025": 4055},
+    "HBM": {"2021": 10025, "2022": 12632, "2023": 15039, "2024": 20188, "2025": 27205},
+    "EUV": {"2021": 23146, "2022": 24680, "2023": 26310, "2024": 29143, "2025": 30707}
+  },
+  "frontier_topic_leaders_sample": {
+    "chiplet": [["Intel Corporation", 218], ["Micron Technology, Inc.", 81], ["Advanced Micro Devices, Inc.", 47]],
+    "hybrid_bonding": [["Taiwan Semiconductor Manufacturing Company, Ltd.", 76], ["Yangtze Memory Technologies Co., Ltd.", 66], ["Adeia Semiconductor Bonding Technologies Inc.", 65], ["Intel Corporation", 54]],
+    "backside_power": [["International Business Machines Corporation", 128], ["Taiwan Semiconductor Manufacturing Company, Ltd.", 89], ["台灣積體電路製造股份有限公司", 76], ["삼성전자주식회사", 67], ["Taiwan Semiconductor Manufacturing Co., Ltd.", 56]],
+    "HBM": [["Samsung Electronics Co., Ltd.", 69], ["Intel Corporation", 49], ["Micron Technology, Inc.", 41], ["삼성전자주식회사", 37]],
+    "EUV": [["Carl Zeiss Smt Gmbh", 68], ["Taiwan Semiconductor Manufacturing Company, Ltd.", 67], ["Taiwan Semiconductor Manufacturing Co., Ltd.", 57], ["荷蘭商Ａｓｍｌ荷蘭公司", 45], ["Asml Netherlands B.V.", 36]]
+  },
+  "representative_patents": [
+    {"publication_number": "TWI861132B", "assignee": "Intel", "publication_date": "2024-11-11", "title": "Transistors with back-side contacts to create three dimensional memory and logic"},
+    {"publication_number": "US11756957B2", "assignee": "IBM", "publication_date": "2023-09-12", "title": "Reducing gate resistance in stacked vertical transport field effect transistors"},
+    {"publication_number": "US12112998B2", "assignee": "TSMC", "publication_date": "2024-10-08", "title": "Semiconductor device and method for forming the same"},
+    {"publication_number": "US11710693B2", "assignee": "Micron Technology, Inc.", "publication_date": "2023-07-25", "title": "Wafer level package utilizing molded interposer"},
+    {"publication_number": "TWI803899B", "assignee": "TSMC", "publication_date": "2023-06-01", "title": "Semiconductor structure, package structure, and package method"},
+    {"publication_number": "US12111576B2", "assignee": "TSMC", "publication_date": "2024-10-08", "title": "Extreme ultraviolet photolithography method with infiltration for enhanced ..."}
+  ],
+  "limitations": [
+    "Google Patents summary facets are sample-based, not full-universe counts.",
+    "Alias consolidation is manual and incomplete across languages.",
+    "Robot blocking (429/503) prevented full-universe extraction and family-level deduplication."
+  ]
+}

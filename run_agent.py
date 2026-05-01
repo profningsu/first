@@ -338,6 +338,7 @@ def _paths_overlap(left: Path, right: Path) -> bool:
 
 
 _SURROGATE_RE = re.compile(r'[\ud800-\udfff]')
+_OPENAI_NAME_SANITIZE_RE = re.compile(r"[^a-zA-Z0-9_-]+")
 
 
 
@@ -408,6 +409,20 @@ def _strip_non_ascii(text: str) -> str:
     any non-ASCII characters (e.g. LANG=C on Chromebooks).
     """
     return text.encode('ascii', errors='ignore').decode('ascii')
+
+
+def _sanitize_openai_name(name: str, *, fallback: str = "item") -> str:
+    """Normalize OpenAI name fields to ``^[a-zA-Z0-9_-]+$``.
+
+    The Responses API validates ``input[*].name`` fields strictly. Historical
+    tool-call names can contain characters like ``:`` from model hallucinations
+    or third-party tool naming schemes, so sanitize them before replay.
+    """
+    raw = str(name or "").strip()
+    sanitized = _OPENAI_NAME_SANITIZE_RE.sub("_", raw).strip("_-")
+    if sanitized:
+        return sanitized
+    return fallback
 
 
 def _sanitize_messages_non_ascii(messages: list) -> bool:
@@ -3563,6 +3578,13 @@ class AIAgent:
                             fn_name = fn.get("name")
                             if not isinstance(fn_name, str) or not fn_name.strip():
                                 continue
+                            safe_fn_name = _sanitize_openai_name(fn_name, fallback="function_call")
+                            if safe_fn_name != fn_name:
+                                logger.debug(
+                                    "Sanitized replayed Responses function_call name %r -> %r",
+                                    fn_name,
+                                    safe_fn_name,
+                                )
 
                             embedded_call_id, embedded_response_item_id = self._split_responses_tool_id(
                                 tc.get("id")
@@ -3592,7 +3614,7 @@ class AIAgent:
                             items.append({
                                 "type": "function_call",
                                 "call_id": call_id,
-                                "name": fn_name,
+                                "name": safe_fn_name,
                                 "arguments": arguments,
                             })
                     continue
@@ -3634,6 +3656,7 @@ class AIAgent:
                     raise ValueError(f"Codex Responses input[{idx}] function_call is missing call_id.")
                 if not isinstance(name, str) or not name.strip():
                     raise ValueError(f"Codex Responses input[{idx}] function_call is missing name.")
+                safe_name = _sanitize_openai_name(name, fallback="function_call")
 
                 arguments = item.get("arguments", "{}")
                 if isinstance(arguments, dict):
@@ -3646,7 +3669,7 @@ class AIAgent:
                     {
                         "type": "function_call",
                         "call_id": call_id.strip(),
-                        "name": name.strip(),
+                        "name": safe_name,
                         "arguments": arguments,
                     }
                 )

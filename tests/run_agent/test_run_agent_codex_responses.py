@@ -589,6 +589,31 @@ def test_chat_messages_to_responses_input_accepts_call_pipe_fc_ids(monkeypatch):
     assert function_output["call_id"] == "call_pair123"
 
 
+def test_chat_messages_to_responses_input_sanitizes_invalid_function_names(monkeypatch):
+    agent = _build_agent(monkeypatch)
+    items = agent._chat_messages_to_responses_input(
+        [
+            {"role": "user", "content": "Search the web"},
+            {
+                "role": "assistant",
+                "content": "",
+                "tool_calls": [
+                    {
+                        "id": "call_badname",
+                        "type": "function",
+                        "function": {"name": "google:search", "arguments": "{}"},
+                    }
+                ],
+            },
+            {"role": "tool", "tool_call_id": "call_badname", "content": '{"ok":false}'},
+        ]
+    )
+
+    function_call = next(item for item in items if item.get("type") == "function_call")
+
+    assert function_call["name"] == "google_search"
+
+
 def test_preflight_codex_api_kwargs_strips_optional_function_call_id(monkeypatch):
     agent = _build_agent(monkeypatch)
     preflight = agent._preflight_codex_api_kwargs(
